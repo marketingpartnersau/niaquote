@@ -5,7 +5,7 @@ $ ->
 			if e.keyCode is 13 or e.keyCode is 27 then $('.popup:visible, .hide-popup').fadeOut()
 			else if e.keyCode is 9
 				e.preventDefault()
-				parent = $ '.popup:visible'
+				parent = $ '.popup:visible' 
 				parentID = parent.attr 'id' 
 				label = $ "[href*='#open-" + parentID + "']"
 
@@ -15,7 +15,7 @@ $ ->
 				nextPopup = $ nextLabel.attr('href').replace 'open-',''
 
 				$('.popup:visible, .hide-popup').fadeOut()
-				nextLabel.click()
+				nextLabel.click() 
 				nextPopup.find('input').focus()
 
 		$('.quote .popup, .show-cpl, .quote .hide-popup').hide()
@@ -38,7 +38,7 @@ $ ->
 			popup = $ $(this).attr('href').replace('open-', '')
 			popup.css({top: offsetTop, left: offsetLeft})
 			popup.fadeIn().find('input').focus()
-
+ 
 			$('.hide-popup').css
 				top: quoteOffset
 				height: quoteHeight

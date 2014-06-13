@@ -224,24 +224,24 @@ $base = get_bloginfo('template_directory').'/ng/app';
 														<h4>Hospital Cover <span>Here's what we'll cover you on:</span></h4>
 														<h5>We cover every area except the things with x’s below.</h5>
 														<ul class="hcovered">
-															<li class="thead">Examples of whats covered</li>
+															<li class="thead">Examples of what's covered</li>
 															<li ng-repeat="h in p.1.info.hospitals | filter: { cover: 'Covered' }: true" class="{{createSlug(h.cover)}} {{createSlug(h.type)}}">
 																{{h.type | titleFilter}}
-																<div description-popup rel="{{ createSlug((h.type | titleFilter)) }}" type="hospital"></div>
+																<div description-popup item="h" type="hospital"></div>
 															</li>
 														</ul>
 														<ul class="hrestricted">
 															<li class="thead">Covered with restricted benefit</li>
 															<li ng-repeat="h in p.1.info.hospitals | filter: { cover: 'Restricted Cover' }: true" class="{{createSlug(h.cover)}} {{createSlug(h.type)}}">
 																{{h.type | titleFilter}}
-																<div description-popup rel="{{ createSlug((h.type | titleFilter)) }}" type="hospital"></div>
+																<div description-popup item="h" type="hospital"></div>
 															</li>
 														</ul>
 														<ul class="hnot" ng-hide="p.1.info.code2 == 'SE60'">
 															<li class="thead">Excluded</li>
 															<li ng-repeat="h in p.1.info.hospitals | filter: { cover: 'Not Covered' }: true" class="{{createSlug(h.cover)}} {{createSlug(h.type)}}">
 																{{h.type | titleFilter}}
-																<div description-popup rel="{{ createSlug((h.type | titleFilter)) }}" type="hospital"></div>
+																<div description-popup item="h" type="hospital"></div>
 															</li>
 														</ul>
 
@@ -267,8 +267,9 @@ $base = get_bloginfo('template_directory').'/ng/app';
 															</li>
 															<li ng-repeat="e in p.1.info.extras" class="{{createSlug(e.type)}}">
 																{{ e.type | titleFilter }}
-																<span class="limit">${{e.allowance | number:0}}</span>
-																<div description-popup rel="{{ createSlug((e.type | titleFilter)) }}" type="extra"></div>
+																<span class="limit" ng-hide="p.1.info.code2 == 'E50' && form.marital == 'Cpl'">${{  e.allowance | number:0}}</span>
+																<span class="limit" ng-show="p.1.info.code2 == 'E50' && form.marital == 'Cpl'">${{ (e.allowance * 2) | number:0}}</span>
+																<div description-popup item="e" type="extra"></div>
 															</li>												
 														</ul>
 											

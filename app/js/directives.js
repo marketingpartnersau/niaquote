@@ -11,14 +11,19 @@ angular.module('quoteApp.directives', [])
     };
   }])
 
-  .directive('descriptionPopup', ['descriptions', function(descriptions) {
+  .directive('descriptionPopup', ['descriptions', '$sce', function(descriptions, $sce) {
     return {
     	restrict : 'A',
     	replace : true,
-    	template : '<div class="description" ng-show="desc"><p>{{ desc }}</p></div>',
-      scope : {},
+      scope: {
+        item : '=item'
+      },
+      controller : 'MainController',
+    	templateUrl : window.location.origin+'/wp-content/themes/Uncomplexicate/ng/app/partials/description-popup.html',
       link : function(scope, element, attrs){
-        scope.desc = descriptions[attrs.type](attrs.rel);
+        var filteredTitle = descriptions.title(scope.item.type);
+        scope.item.slug = scope.createSlug(filteredTitle);
+        scope.item.desc = $sce.trustAsHtml(descriptions[attrs.type](scope.item.slug));
       }
     };
   }])
