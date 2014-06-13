@@ -11,6 +11,15 @@ module.exports = function(grunt) {
 	  }
 	},
 
+  copy: {
+    main: {
+      expand: true,
+      cwd: 'bower_components/',
+      src: '**/*.js',
+      dest: 'app/js/vendor'
+    },
+  },
+
   watch: {
     grunt: { files: ['Gruntfile.js'] },
 
@@ -29,11 +38,12 @@ module.exports = function(grunt) {
       }
     }
       
-    }
-  });
+  }
+});
   
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('build', ['coffee']);
   grunt.registerTask('default', ['watch']);
