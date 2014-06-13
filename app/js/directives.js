@@ -19,7 +19,7 @@ angular.module('quoteApp.directives', [])
         item : '=item'
       },
       controller : 'MainController',
-    	templateUrl : window.location.origin+'/wp-content/themes/Uncomplexicate/ng/app/partials/description-popup.html',
+    	templateUrl : window.location.origin+'/wp-content/themes/health/ng/app/partials/description-popup.html',
       link : function(scope, element, attrs){
         var filteredTitle = descriptions.title(scope.item.type);
         scope.item.slug = scope.createSlug(filteredTitle);
