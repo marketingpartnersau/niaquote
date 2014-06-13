@@ -1,7 +1,6 @@
 <?php 
 $base = get_bloginfo('template_directory').'/ng/app';
 	wp_dequeue_script('quote');
-
 	wp_deregister_script('quote');
 
  ?>	
@@ -20,6 +19,16 @@ $base = get_bloginfo('template_directory').'/ng/app';
 	<script type='text/javascript' src='<?php echo $base; ?>/js/underscore-min.js'></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo $base; ?>/bower_components/flexslider/flexslider.css">
 	<script src="<?php echo $base; ?>/bower_components/flexslider/jquery.flexslider.js"></script>
+	<script src="<?php echo $base; ?>/bower_components/angular/angular.js"></script>
+<script src="<?php echo $base; ?>/bower_components/angular-route/angular-route.js"></script>
+<script src="<?php echo $base; ?>/bower_components/angular-flexslider/angular-flexslider.js"></script>
+<script src="<?php echo $base; ?>/bower_components/angular-cookie/angular-cookie.js"></script>
+
+<script src="<?php echo $base; ?>/js/app.js"></script>
+<script src="<?php echo $base; ?>/js/services.js"></script>
+<script src="<?php echo $base; ?>/js/controllers.js"></script>
+<script src="<?php echo $base; ?>/js/filters.js"></script>
+<script src="<?php echo $base; ?>/js/directives.js"></script>
 
 
 
@@ -310,7 +319,7 @@ $base = get_bloginfo('template_directory').'/ng/app';
             		<aside class="policyDetails large-3 columns" id="policyDetails">
                         <div class="row">
                             <div class="small-12 medium-6 large-12 columns">
-                                <div class="panel show-for-large-up kids-excess hide"><?php echo ot_get_option( 'zero_kids_excess_text' ); ?></div>
+                                <div class="panel show-for-large-up kids-excess hide">Zero excess for your kiddies!</div>
                     			<ul class="variables">
                     				<li class="excess">
                     					<span class="tooltop">Click to Change</span>
@@ -359,7 +368,7 @@ $base = get_bloginfo('template_directory').'/ng/app';
                     			</ul>
                             </div>
                             <div class="small-12 medium-6 large-12 columns">
-                    			<div class="panel hide-for-large-up kids-excess hide"><?php echo ot_get_option( 'zero_kids_excess_text' ); ?></div>
+                    			<div class="panel hide-for-large-up kids-excess hide">Zero kids excess for the kiddies!</div>
                     			
                     			<div class="flag">
                     				<p class="phone-number museo">1300 199 802</p>
@@ -392,16 +401,7 @@ $base = get_bloginfo('template_directory').'/ng/app';
   <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
-<script src="<?php echo $base; ?>/bower_components/angular/angular.js"></script>
-<script src="<?php echo $base; ?>/bower_components/angular-route/angular-route.js"></script>
-<script src="<?php echo $base; ?>/bower_components/angular-flexslider/angular-flexslider.js"></script>
-<script src="<?php echo $base; ?>/bower_components/angular-cookie/angular-cookie.js"></script>
 
-<script src="<?php echo $base; ?>/js/app.js"></script>
-<script src="<?php echo $base; ?>/js/services.js"></script>
-<script src="<?php echo $base; ?>/js/controllers.js"></script>
-<script src="<?php echo $base; ?>/js/filters.js"></script>
-<script src="<?php echo $base; ?>/js/directives.js"></script>
 </div>
 </div>
 	
